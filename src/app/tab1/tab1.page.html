@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title bold text-center color="danger">
+      HSBC
+    </ion-title>
+     <ion-buttons slot="end">
+          <ion-button href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:tag:Name">
+             Demo
+            </ion-button>
+            <ion-button href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:tag:Name">
+              <ion-icon color="danger" slot="icon-only" name="videocam"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label text-center bold color="danger">{{Description}}</ion-label>
+    </ion-item>
+    
+    <ion-slides #mySlider scrollbar="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" pager="true" [options]="slideOpts">
+    <ion-slide  *ngFor="let img of SelectedArray">
+      <ion-img src="../../assets/{{img}}.png " style="height:500px" (click)="openPreview(img)"></ion-img>
+    </ion-slide>
+    </ion-slides>
+ 
+  
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button color="light">
+        <ion-img src="../../assets/HSBC.png"></ion-img>
+      </ion-fab-button> 
+      <ion-fab-list side="start">
+        <ion-fab-button (click)="docker()">
+         <ion-img src="../../assets/docker.png"></ion-img>
+        </ion-fab-button >
+        <ion-label color="danger">Docker</ion-label>
+      </ion-fab-list>
+      <ion-fab-list side="end">
+        <ion-fab-button (click)="kuber()">
+        <ion-img src="../../assets/kubernetis.png"></ion-img>
+        </ion-fab-button>
+        <ion-label color="danger">Kubernetes</ion-label>
+      </ion-fab-list>
+      <ion-fab-list side="top">
+          <ion-fab-button (click)="micro()">
+            <ion-img src="../../assets/micro.png"></ion-img>
+          </ion-fab-button>
+          <ion-label color="danger">Micro Services</ion-label>
+        </ion-fab-list>
+    </ion-fab>
+
+   
+</ion-content>

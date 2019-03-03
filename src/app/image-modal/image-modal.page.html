@@ -1,0 +1,42 @@
+<ion-content >
+ 
+
+
+
+  <ion-item class="close-fake" lines="none" text-center>
+    <ion-button (click)="close()" fill="outline" color="light">
+      <ion-icon name="close" slot="start"></ion-icon>
+      Back
+    </ion-button>
+
+    <ion-button slot="end" fill="clear" color="light">
+        Zoom(double tap)
+      </ion-button>
+      <ion-button slot="end" fill="clear" color="light">
+         Swipe
+        </ion-button>
+  </ion-item>
+ 
+  <ion-slides  scrollbar="true" [options]="sliderOpts">
+      
+    <ion-slide  *ngFor="let img of selectedarray">
+
+        <ion-grid>
+              <ion-row>
+                <ion-col>
+                    <pinch-zoom>
+                        <ion-img  src="../../assets/{{ img }}.png"></ion-img>
+                      </pinch-zoom>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+  
+  
+
+        
+      
+    </ion-slide>
+  
+  </ion-slides>
+ 
+</ion-content>
